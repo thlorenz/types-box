@@ -1,4 +1,4 @@
-type Band = {
+export type Band = {
   drums: string
   readonly guitar: string
   bass: string
@@ -6,39 +6,40 @@ type Band = {
 }
 
 // drums?: string; readonly guitar?: string; bass?: string; vocals?: string
-type BandAfterFiveYears = Partial<Band>
+export type BandAfterFiveYears = Partial<Band>
 
 // drums: string; readonly guitar: string; bass: string; vocals: string
-type BandForImportantGig = Required<Band>
+export type BandForImportantGig = Required<Band>
 
 // readonly drums: string; readonly guitar: string; readonly bass: string; readonly vocals?: string
-type StickyBand = Readonly<Band>
+export type StickyBand = Readonly<Band>
 
 // Band & { piano: string }
-type FullBand = NonNullable<Band & { piano: string | null }>
+export type FullBand = NonNullable<Band & { piano: string | null }>
 
 // 'drums' | 'guitar' | 'bass'
-type InstrumentalBandMembers = Exclude<keyof Band, 'vocals'>
+export type InstrumentalBandMembers = Exclude<keyof Band, 'vocals'>
 
 // drums: string; readonly guitar: string; bass: string
-type InstrumentalBand = Omit<Band, 'vocals'>
+export type InstrumentalBand = Omit<Band, 'vocals'>
 
 // 'vocals' | 'guitar'
-type DuoMembers = Extract<keyof Band, 'vocals' | 'organ' | 'guitar'>
+export type DuoMembers = Extract<keyof Band, 'vocals' | 'organ' | 'guitar'>
 
 //
 // Some related non-core types
 //
 
-type Include<T, K extends keyof any> = Pick<T, Extract<keyof T, K>>
-// vocals: string; readonly guitar: string
-type Duo = Include<Band, 'vocals' | 'organ' | 'guitar'>
+export type Include<T, K extends keyof any> = Pick<T, Extract<keyof T, K>>
 
-type MutableRequired<T> = { -readonly [P in keyof T]-?: T[P] }
-type ReadonlyPartial<T> = { +readonly [P in keyof T]+?: T[P] }
+// vocals: string; readonly guitar: string
+export type Duo = Include<Band, 'vocals' | 'organ' | 'guitar'>
+
+export type MutableRequired<T> = { -readonly [P in keyof T]-?: T[P] }
+export type ReadonlyPartial<T> = { +readonly [P in keyof T]+?: T[P] }
 
 // drums: string; guitar: string; bass: string; vocals: string
-type FlexiblePros = MutableRequired<Band>
+export type FlexiblePros = MutableRequired<Band>
 
 // readonly drums?: string; readonly guitar?: string; readonly bass?: string; readonly vocals?: string
-type StickyParty = ReadonlyPartial<Band>
+export type StickyParty = ReadonlyPartial<Band>
