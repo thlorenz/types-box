@@ -1,0 +1,13 @@
+{
+  "name": "types-box",
+  "version": "1.0.0",
+  "description": "Playing around with typescript types",
+  "main": "dist/types-box.js",
+  "author": "Thorsten Lorenz <thlorenz@gmx.de>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "prettier": "^1.19.1",
+    "typescript": "^3.7.3"
+  }
+}
